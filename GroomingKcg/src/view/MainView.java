@@ -49,7 +49,10 @@ public class MainView extends javax.swing.JFrame {
         HapusButton = new javax.swing.JButton();
         Id_layanan = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
 
@@ -69,25 +72,25 @@ public class MainView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableData);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, -1, 480));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 420, 240));
 
         jLabel1.setText("Nama Pelanggan");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 145, 110, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, -1));
 
         jLabel2.setText("Paket");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 188, 98, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 98, -1));
 
         jLabel3.setText("Jadwal");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 234, 37, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 90, -1));
 
         Nama_pelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Nama_pelangganActionPerformed(evt);
             }
         });
-        getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 142, 132, -1));
-        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 185, 132, -1));
-        getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 231, 132, -1));
+        getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 132, -1));
+        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 132, -1));
+        getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 132, -1));
 
         UpdateButton.setText("Update");
         UpdateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,10 +98,10 @@ public class MainView extends javax.swing.JFrame {
                 UpdateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 293, -1, -1));
+        getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         SimpanButton.setText("Simpan");
-        getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 293, -1, -1));
+        getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
         HapusButton.setText("Hapus");
         HapusButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,20 +109,72 @@ public class MainView extends javax.swing.JFrame {
                 HapusButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(HapusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 293, -1, -1));
+        getContentPane().add(HapusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
+        Id_layanan.setEditable(false);
         Id_layanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Id_layananActionPerformed(evt);
             }
         });
-        getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 102, 132, -1));
+        getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 132, -1));
 
         jLabel4.setText("ID_Pelanggan");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 105, 110, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\AKuliah\\Tugas Semester 4\\praktikum\\GroomingKcg\\GroomingKcg\\GroomingKcg\\test\\kucing.jpg")); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 710, 480));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("GROOMING KUCING");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel7)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(200, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,6 +245,9 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
