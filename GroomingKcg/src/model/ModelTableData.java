@@ -6,9 +6,9 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Snndita
  */
-public class GroomData extends AbstractTableModel {
-    List<modelData> md;
-    public GroomData(List<modelData>dp) {
+public class ModelTableData extends AbstractTableModel {
+    List<ModelData> md;
+    public ModelTableData(List<ModelData>dp) {
         this.md = md;
     }
 
@@ -28,7 +28,6 @@ public class GroomData extends AbstractTableModel {
             case 0 -> "id_layanan";
             case 1 -> "nama_pelanggan";
             case 2 -> "paket";
-            case 3 -> "durasi";
             case 4 -> "jadwal";
             default -> null;
         };
@@ -36,19 +35,12 @@ public class GroomData extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int row, int column) {
-        switch(column){
-            case 0:
-                return md.get(row).getId_layanan();
-            case 1:
-                return md.get(row).getNama_pelanggan();
-            case 2:
-                return md.get(row).getPaket();
-            case 3:
-                return md.get(row).getDurasi();
-            case 4:
-                return md.get(row).getJadwal();
-            default:
-                return null;
-        }
+        return switch (column) {
+            case 0 -> md.get(row).getId_layanan();
+            case 1 -> md.get(row).getNama_pelanggan();
+            case 2 -> md.get(row).getPaket();
+            case 3 -> md.get(row).getJadwal();
+            default -> null;
+        };
     }
 }

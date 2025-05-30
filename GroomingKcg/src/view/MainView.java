@@ -8,15 +8,24 @@ package view;
  *
  * @author L E N O V O
  */
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import control.controller;
+import javax.swing.JLabel;
+
 public class MainView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainView
-     */
+    controller dc;
     public MainView() {
         initComponents();
+        dc = new controller(this);
+        dc.isitabel();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +35,151 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableData = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Nama_pelanggan = new javax.swing.JTextField();
+        Paket = new javax.swing.JTextField();
+        Jadwal = new javax.swing.JTextField();
+        UpdateButton = new javax.swing.JButton();
+        SimpanButton = new javax.swing.JButton();
+        HapusButton = new javax.swing.JButton();
+        Id_layanan = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TableData.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TableData);
+
+        jLabel1.setText("Nama Pelanggan");
+
+        jLabel2.setText("Paket");
+
+        jLabel3.setText("Jadwal");
+
+        Nama_pelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Nama_pelangganActionPerformed(evt);
+            }
+        });
+
+        UpdateButton.setText("Update");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
+            }
+        });
+
+        SimpanButton.setText("Simpan");
+
+        HapusButton.setText("Hapus");
+        HapusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusButtonActionPerformed(evt);
+            }
+        });
+
+        Id_layanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Id_layananActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("ID_Pelanggan");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 816, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(UpdateButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(SimpanButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(HapusButton)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Nama_pelanggan)
+                            .addComponent(Paket)
+                            .addComponent(Jadwal)
+                            .addComponent(Id_layanan))))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 960, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Id_layanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(Nama_pelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(Paket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(Jadwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UpdateButton)
+                            .addComponent(SimpanButton)
+                            .addComponent(HapusButton))))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Nama_pelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nama_pelangganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Nama_pelangganActionPerformed
+
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UpdateButtonActionPerformed
+
+    private void HapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HapusButtonActionPerformed
+
+    private void Id_layananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_layananActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Id_layananActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +217,124 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton HapusButton;
+    private javax.swing.JTextField Id_layanan;
+    private javax.swing.JTextField Jadwal;
+    private javax.swing.JTextField Nama_pelanggan;
+    private javax.swing.JTextField Paket;
+    private javax.swing.JButton SimpanButton;
+    private javax.swing.JTable TableData;
+    private javax.swing.JButton UpdateButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    public controller getDc() {
+        return dc;
+    }
+
+    public void setDc(controller dc) {
+        this.dc = dc;
+    }
+
+    public JTextField getId_layanan() {
+        return Id_layanan;
+    }
+
+    public void setId_layanan(JTextField Id_layanan) {
+        this.Id_layanan = Id_layanan;
+    }
+    
+    
+    public JButton getHapusButton() {
+        return HapusButton;
+    }
+
+    public void setHapusButton(JButton HapusButton) {
+        this.HapusButton = HapusButton;
+    }
+
+    public JTextField getJadwal() {
+        return Jadwal;
+    }
+
+    public void setJadwal(JTextField Jadwal) {
+        this.Jadwal = Jadwal;
+    }
+
+    public JTextField getNama_pelanggan() {
+        return Nama_pelanggan;
+    }
+
+    public void setNama_pelanggan(JTextField Nama_pelanggan) {
+        this.Nama_pelanggan = Nama_pelanggan;
+    }
+
+    public JTextField getPaket() {
+        return Paket;
+    }
+
+    public void setPaket(JTextField Paket) {
+        this.Paket = Paket;
+    }
+
+    public JButton getSimpanButton() {
+        return SimpanButton;
+    }
+
+    public void setSimpanButton(JButton SimpanButton) {
+        this.SimpanButton = SimpanButton;
+    }
+
+    public JTable getTableData() {
+        return TableData;
+    }
+
+    public void setTableData(JTable TableData) {
+        this.TableData = TableData;
+    }
+
+    public JButton getUpdateButton() {
+        return UpdateButton;
+    }
+
+    public void setUpdateButton(JButton UpdateButton) {
+        this.UpdateButton = UpdateButton;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
 }

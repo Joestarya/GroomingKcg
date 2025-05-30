@@ -26,7 +26,7 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public void insert(modelData d) {
+    public void insert(ModelData d) {
         PreparedStatement statement = null;
         try{
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
@@ -50,7 +50,7 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public void edit(modelData d) {
+    public void edit(ModelData d) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -60,7 +60,12 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public List<modelData> getAll() {
+    public List<ModelData> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(ModelData data) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

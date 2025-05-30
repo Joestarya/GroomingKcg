@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
  *
  * @author Snndita
  */
-public class modelData {
+public class ModelData {
     private Integer id_layanan;
     private String nama_pelanggan;
     private String paket;

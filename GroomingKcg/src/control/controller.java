@@ -12,7 +12,7 @@ import connect.connector;
 public class controller {
     MainView frame;
     implementasi impDAO;
-    List<modelData> md;
+    List<ModelData> md;
 
     public controller(MainView frame) {
         this.frame = frame;
@@ -22,24 +22,22 @@ public class controller {
 
     public void isitabel(){
         md = impDAO.getAll();
-        GroomData m = new GroomData(md);
+        ModelTableData m = new ModelTableData(md);
         //frame.getTabelData().setModel(m);
     }
 
     public void insert(){
-        modelData data = new modelData();
+        ModelData data = new ModelData();
         data.setNama_pelanggan(frame.getNama_pelanggan().getText());
         data.setPaket(frame.getPaket().getText());
-        data.setDurasi(frame.getDurasi().getText());
         data.setJadwal(frame.getJadwal().getText());
         impDAO.insert(data);
     }
 
     public void update(){
-        modelData data = new modelData();
+        ModelData data = new ModelData();
         data.setNama_pelanggan(frame.getNama_pelanggan().getText());
         data.setPaket(frame.getPaket().getText());
-        data.setDurasi(frame.getDurasi().getText());
         data.setJadwal(frame.getJadwal().getText());
         data.setId_layanan(Integer.parseInt(frame.getId_layanan().getText()));
         impDAO.update(data);
@@ -55,7 +53,6 @@ public class controller {
         model.addColumn("id_layanan");
         model.addColumn("nama_pelanggan");
         model.addColumn("paket");
-        model.addColumn("durasi");
         model.addColumn("jadwal");
 
         try {
@@ -69,7 +66,6 @@ public class controller {
                     rs.getInt("id_layanan"),
                     rs.getString("nama_pelanggan"),
                     rs.getString("paket"),
-                    rs.getString("durasi"),
                     rs.getString("jadwal"),
                 });
             }
