@@ -47,7 +47,7 @@ public class controller {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
         data.setJadwal(jadwal);
-        data.setId_layanan(Integer.parseInt(frame.getId_layanan().getText()));
+        data.setId_layanan(Integer.valueOf(frame.getId_layanan().getText()));
         impDAO.edit(data);
     }
 
@@ -82,4 +82,12 @@ public class controller {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
     }
+        
+    public void clear() {
+        frame.getId_layanan().setText("");
+        frame.getNama_pelanggan().setText("");
+        frame.getJadwal().setText("");
+        frame.getPaket().setText("");
+    }
 }
+

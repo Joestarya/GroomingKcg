@@ -16,7 +16,6 @@ import DAOImplement.implementasi;
  */
 public class catGroomDAO implements implementasi {
     Connection connection;
-    
     LocalDateTime now = LocalDateTime.now();
     Timestamp timestamp = Timestamp.valueOf(now);
     
@@ -24,7 +23,7 @@ public class catGroomDAO implements implementasi {
     + "paket.paket, paket.harga, paket.durasi from layanan join paket on layanan.paket = paket.paket";
     
     final String insert = "INSERT INTO layanan (nama_pelanggan, paket, jadwal) VALUES (?, ?, ?)";
-    final String edit = "UPDATE layanan SET nama_pelanggan=?, jadwal=?, id_paket=? WHERE id_layanan=?";
+    final String edit =   "UPDATE layanan SET nama_pelanggan=?, paket=?, jadwal=?  WHERE id_layanan=?";
     final String delete = "delete from layanan where id_layanan=?";
     
     public catGroomDAO() {
@@ -75,9 +74,7 @@ public class catGroomDAO implements implementasi {
         statement.setString(2, d.getPaket());
         // Convert LocalDateTime to Timestamp for database
         statement.setTimestamp(3, Timestamp.valueOf(d.getJadwal()));
-
         int executeUpdate = statement.executeUpdate();
-
         ResultSet rs = statement.getGeneratedKeys();
         while (rs.next()) {
             d.setId_layanan(rs.getInt(1));
@@ -94,14 +91,45 @@ public class catGroomDAO implements implementasi {
 }
 }
 
-    @Override
-    public void edit(ModelData d) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void edit(ModelData p) {
+    PreparedStatement statement = null;
+
+    try {
+        statement = connection.prepareStatement(edit);
+        statement.setString(1, p.getNama_pelanggan());
+        statement.setString(2, p.getPaket());
+        statement.setTimestamp(3, Timestamp.valueOf(p.getJadwal()));
+        statement.setInt(4, p.getId_layanan());
+        statement.executeUpdate();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    } finally {
+        try {
+            if (statement != null) statement.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
+}
+
+    
 
     @Override
     public void delete(int id_layanan) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement statement = null;
+        try{
+            statement = connection.prepareStatement(delete);
+            statement.setInt(1, id_layanan);
+            statement.executeUpdate();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try {
+                statement.close();
+            }catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
     
 }

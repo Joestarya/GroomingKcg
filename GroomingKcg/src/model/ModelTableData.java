@@ -25,11 +25,11 @@ public class ModelTableData extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         return switch (column) {
-            case 0 -> "id_layanan";
-            case 1 -> "nama_pelanggan";
-            case 2 -> "paket";
-            case 3 -> "jadwal";
-            case 4 -> "harga";
+            case 0 -> "Id Layanan";
+            case 1 -> "Nama Pelanggan";
+            case 2 -> "Paket Groomnig";
+            case 3 -> "Jadwal Grooming";
+            case 4 -> "Harga Grooming";
             default -> null;
         };
     }

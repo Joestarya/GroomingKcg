@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import control.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 public class MainView extends javax.swing.JFrame {
@@ -39,8 +40,6 @@ public class MainView extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TableData = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -51,52 +50,55 @@ public class MainView extends javax.swing.JFrame {
         SimpanButton = new javax.swing.JButton();
         HapusButton = new javax.swing.JButton();
         Id_layanan = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        PaketChoice = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableData = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        Clear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        HapusButton1 = new javax.swing.JButton();
+        HapusButton2 = new javax.swing.JButton();
+        HapusButton3 = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TableData.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(TableData);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 420, 240));
-
+        jLabel1.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel1.setText("Nama Pelanggan");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, 30));
 
+        jLabel2.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel2.setText("Paket");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 98, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 98, 30));
 
+        jLabel3.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel3.setText("Jadwal");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 90, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 90, 30));
 
+        Nama_pelanggan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Nama_pelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Nama_pelangganActionPerformed(evt);
             }
         });
-        getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 132, -1));
-        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 132, -1));
+        getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 150, 30));
 
+        Paket.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 150, 30));
+
+        Jadwal.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Jadwal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JadwalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JadwalMouseEntered(evt);
             }
         });
         Jadwal.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +106,14 @@ public class MainView extends javax.swing.JFrame {
                 JadwalActionPerformed(evt);
             }
         });
-        getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 132, -1));
+        Jadwal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JadwalKeyTyped(evt);
+            }
+        });
+        getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 150, 30));
 
+        UpdateButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         UpdateButton.setText("Update");
         UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +122,7 @@ public class MainView extends javax.swing.JFrame {
         });
         getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
+        SimpanButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         SimpanButton.setText("Simpan");
         SimpanButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,6 +136,7 @@ public class MainView extends javax.swing.JFrame {
         });
         getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
+        HapusButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         HapusButton.setText("Hapus");
         HapusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,19 +146,80 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().add(HapusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
         Id_layanan.setEditable(false);
+        Id_layanan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Id_layanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Id_layananActionPerformed(evt);
             }
         });
-        getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 132, -1));
+        getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 150, 30));
 
+        PaketChoice.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        PaketChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dry Grooming", "Grooming Anti Kutu", "Grooming Lengkap", "Grooming Mandi" }));
+        PaketChoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaketChoiceActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PaketChoice, 0, 190, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PaketChoice)
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 190, 30));
+
+        TableData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        TableData.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        TableData.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TableData.setNextFocusableComponent(Jadwal);
+        TableData.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        TableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableDataMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(TableData);
+        if (TableData.getColumnModel().getColumnCount() > 0) {
+            TableData.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+            TableData.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+            TableData.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+            TableData.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+        }
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 580, 240));
+
+        jLabel4.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel4.setText("Id Pelanggan");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
+        Clear.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        Clear.setText("Clear");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 320, 80, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -174,31 +245,39 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(200, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 15, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 630));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 710, 470));
+
+        HapusButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        HapusButton1.setText("Hapus");
+        HapusButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 630));
+
+        HapusButton2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        HapusButton2.setText("Hapus");
+        HapusButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HapusButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+
+        HapusButton3.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        HapusButton3.setText("Hapus");
+        HapusButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HapusButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -209,10 +288,14 @@ public class MainView extends javax.swing.JFrame {
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
+        dc.edit();
+        dc.isitabel();
     }//GEN-LAST:event_UpdateButtonActionPerformed
 
     private void HapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButtonActionPerformed
         // TODO add your handling code here:
+        dc.delete();
+        dc.isitabel();
     }//GEN-LAST:event_HapusButtonActionPerformed
 
     private void Id_layananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_layananActionPerformed
@@ -226,7 +309,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void JadwalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JadwalMouseClicked
         // TODO add your handling code here:
-        Date thisDate = new Date();
+               Date thisDate = new Date();
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Jadwal.setText(f.format(thisDate));
     }//GEN-LAST:event_JadwalMouseClicked
@@ -240,6 +323,50 @@ public class MainView extends javax.swing.JFrame {
     private void SimpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpanButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SimpanButtonActionPerformed
+
+    private void JadwalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JadwalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JadwalKeyTyped
+
+    private void PaketChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaketChoiceActionPerformed
+        // TODO add your handling code here:
+        String selectedValue = PaketChoice.getSelectedItem().toString();
+        
+        Paket.setText(selectedValue);
+        
+    }//GEN-LAST:event_PaketChoiceActionPerformed
+
+    private void JadwalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JadwalMouseEntered
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JadwalMouseEntered
+
+    private void TableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableDataMouseClicked
+        // TODO add your handling code here:
+        int baris = TableData.getSelectedRow();
+        Id_layanan.setText(TableData.getValueAt(baris, 0).toString());
+        Nama_pelanggan.setText(TableData.getValueAt(baris, 1).toString());
+        Paket.setText(TableData.getValueAt(baris, 2).toString());
+        Jadwal.setText(TableData.getValueAt(baris, 3).toString());
+
+    }//GEN-LAST:event_TableDataMouseClicked
+
+    private void HapusButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HapusButton1ActionPerformed
+
+    private void HapusButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HapusButton2ActionPerformed
+
+    private void HapusButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HapusButton3ActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        dc.clear();
+    }//GEN-LAST:event_ClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,11 +404,16 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Clear;
     private javax.swing.JButton HapusButton;
+    private javax.swing.JButton HapusButton1;
+    private javax.swing.JButton HapusButton2;
+    private javax.swing.JButton HapusButton3;
     private javax.swing.JTextField Id_layanan;
     private javax.swing.JTextField Jadwal;
     private javax.swing.JTextField Nama_pelanggan;
     private javax.swing.JTextField Paket;
+    private javax.swing.JComboBox<String> PaketChoice;
     private javax.swing.JButton SimpanButton;
     private javax.swing.JTable TableData;
     private javax.swing.JButton UpdateButton;
@@ -294,6 +426,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

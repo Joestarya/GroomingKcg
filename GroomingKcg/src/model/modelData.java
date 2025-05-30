@@ -40,8 +40,6 @@ public class ModelData {
         this.jadwal = jadwal;
     }
 
-
-
     public String getPaket() {
         return paket;
     }
