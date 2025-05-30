@@ -39,7 +39,7 @@ public class controller {
         impDAO.insert(data);
     }
 
-    public void update(){
+    public void edit(){
         ModelData data = new ModelData();
         data.setNama_pelanggan(frame.getNama_pelanggan().getText());
         data.setPaket(frame.getPaket().getText());
@@ -47,7 +47,7 @@ public class controller {
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
         data.setJadwal(jadwal);
         data.setId_layanan(Integer.parseInt(frame.getId_layanan().getText()));
-        impDAO.update(data);
+        impDAO.edit(data);
     }
 
     public void delete(){

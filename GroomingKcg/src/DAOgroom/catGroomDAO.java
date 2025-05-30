@@ -68,7 +68,33 @@ public class catGroomDAO implements implementasi {
     public List<ModelData> getAll() {
         List<ModelData> list = new ArrayList<>();
         PreparedStatement statement = null;
-        ResultSet resultSet = null;   
+        ResultSet resultSet = null;
+        
+        try{
+            statement = connection.prepareStatement(select);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                ModelData md = new ModelData();
+                md.setId_layanan(resultSet.getInt("id_layanan"));
+                md.setNama_pelanggan(resultSet.getString("nama_pelanggan"));
+                md.setJadwal(resultSet.getTimestamp("jadwal").toLocalDateTime());
+                md.setId_paket(resultSet.getInt("id_paket"));
+                md.setPaket(resultSet.getString("paket"));
+                md.setHarga(resultSet.getDouble("harga"));
+                md.setDurasi(resultSet.getInt("durasi"));
+                list.add(md);
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(catGroomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try{
+                if(resultSet != null) resultSet.close();
+                if(statement != null) statement.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } return list;
     }
     
 }
