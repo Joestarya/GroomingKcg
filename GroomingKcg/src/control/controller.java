@@ -33,7 +33,7 @@ public class controller {
         ModelData data = new ModelData();
         data.setNama_pelanggan(frame.getNama_pelanggan().getText());
         data.setPaket(frame.getPaket().getText());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
         data.setJadwal(jadwal);
         impDAO.insert(data);
@@ -43,7 +43,7 @@ public class controller {
         ModelData data = new ModelData();
         data.setNama_pelanggan(frame.getNama_pelanggan().getText());
         data.setPaket(frame.getPaket().getText());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
         data.setJadwal(jadwal);
         data.setId_layanan(Integer.parseInt(frame.getId_layanan().getText()));

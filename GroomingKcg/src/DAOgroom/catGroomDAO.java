@@ -22,7 +22,7 @@ public class catGroomDAO implements implementasi {
     
     final String select = "select layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, paket.id_paket as id_paket, "
     + "paket.paket, paket.harga, paket.durasi from layanan join paket on layanan.id_paket = paket.id_paket";
-    final String insert = "INSERT INTO layanan (nama_pelanggan, jadwal, id_paket) VALUES (?, ?, ?)";
+    final String insert = "INSERT INTO layanan (nama_pelanggan, jadwal, paket) VALUES (?, ?, ?)";
     final String edit = "UPDATE layanan SET nama_pelanggan=?, jadwal=?, id_paket=? WHERE id_layanan=?";
     final String delete = "delete from layanan where id_layanan=?";
     
@@ -37,7 +37,7 @@ public class catGroomDAO implements implementasi {
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, d.getNama_pelanggan());
             statement.setTimestamp(2, Timestamp.valueOf(d.getJadwal()));
-            statement.setInt(3, d.getId_paket());
+            statement.setString(3, d.getPaket());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             while(rs.next()){

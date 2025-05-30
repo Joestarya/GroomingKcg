@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import control.controller;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JLabel;
 
 public class MainView extends javax.swing.JFrame {
@@ -21,6 +23,7 @@ public class MainView extends javax.swing.JFrame {
     controller dc;
     public MainView() {
         initComponents();
+        
         dc = new controller(this);
         dc.isitabel();
     }
@@ -90,6 +93,17 @@ public class MainView extends javax.swing.JFrame {
         });
         getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 132, -1));
         getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 132, -1));
+
+        Jadwal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JadwalMouseClicked(evt);
+            }
+        });
+        Jadwal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JadwalActionPerformed(evt);
+            }
+        });
         getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 132, -1));
 
         UpdateButton.setText("Update");
@@ -101,6 +115,16 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         SimpanButton.setText("Simpan");
+        SimpanButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SimpanButtonMouseClicked(evt);
+            }
+        });
+        SimpanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SimpanButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
         HapusButton.setText("Hapus");
@@ -194,6 +218,28 @@ public class MainView extends javax.swing.JFrame {
     private void Id_layananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_layananActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Id_layananActionPerformed
+
+    private void JadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JadwalActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_JadwalActionPerformed
+
+    private void JadwalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JadwalMouseClicked
+        // TODO add your handling code here:
+        Date thisDate = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Jadwal.setText(f.format(thisDate));
+    }//GEN-LAST:event_JadwalMouseClicked
+
+    private void SimpanButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SimpanButtonMouseClicked
+        // TODO add your handling code here:
+        dc.insert();
+        dc.isitabel();  
+    }//GEN-LAST:event_SimpanButtonMouseClicked
+
+    private void SimpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpanButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SimpanButtonActionPerformed
 
     /**
      * @param args the command line arguments
