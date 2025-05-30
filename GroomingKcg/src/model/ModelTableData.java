@@ -7,8 +7,8 @@ import javax.swing.table.AbstractTableModel;
  * @author Snndita
  */
 public class ModelTableData extends AbstractTableModel {
-    List<ModelData> md;
-    public ModelTableData(List<ModelData>dp) {
+    List<modelData> md;
+    public ModelTableData(List<modelData>dp) {
         this.md = md;
     }
 
@@ -38,8 +38,9 @@ public class ModelTableData extends AbstractTableModel {
         return switch (column) {
             case 0 -> md.get(row).getId_layanan();
             case 1 -> md.get(row).getNama_pelanggan();
-            case 2 -> md.get(row).getPaket();
-            case 3 -> md.get(row).getJadwal();
+            case 2 -> md.get(row).getJadwal();
+            case 3 -> md.get(row).getId_paket();
+                //dari paket blm masuk
             default -> null;
         };
     }

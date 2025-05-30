@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import connect.connector;
 import model.*;
 import DAOImplement.implementasi;
@@ -16,9 +17,13 @@ import DAOImplement.implementasi;
 public class catGroomDAO implements implementasi {
     Connection connection;
     
-    final String select = "select * from paket";
-    final String insert = "insert into paket (nama_pelanggan, paket, jadwal) values (?, ?, ?)";
-    final String edit = "update buku set nama_pelanggan=?, paket=?, jadwal=? where id_layanan=?";
+    LocalDateTime now = LocalDateTime.now();
+    Timestamp timestamp = Timestamp.valueOf(now);
+    
+    final String select = "select layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, paket.id_paket as id_paket, "
+    + "paket.paket, paket.harga, paket.durasi from layanan join paket on layanan.id_paket = paket.id_paket";
+    final String insert = "INSERT INTO buku (nama_pelanggan, jadwal, id_paket) VALUES (?, ?, ?)";
+    final String edit = "UPDATE buku SET nama_pelanggan=?, jadwal=?, id_paket=? WHERE id_layanan=?";
     final String delete = "delete from buku where id_layanan=?";
     
     public catGroomDAO() {
@@ -26,13 +31,13 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public void insert(ModelData d) {
+    public void insert(modelData d) {
         PreparedStatement statement = null;
         try{
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, d.getNama_pelanggan());
-            statement.setString(2, d.getPaket());
-            statement.setTimestamp(3, Timestamp.valueOf(d.getJadwal()));
+            statement.setTimestamp(2, Timestamp.valueOf(d.getJadwal()));
+            statement.setInt(3, d.getId_paket());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             while(rs.next()){
@@ -50,7 +55,7 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public void edit(ModelData d) {
+    public void edit(modelData d) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -60,13 +65,7 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public List<ModelData> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void update(ModelData data) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<modelData> getAll() {
     }
     
 }
