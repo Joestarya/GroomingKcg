@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/DAOImplement/implementasi.java</file>
+            <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/model/ModelTableData.java</file>
             <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/view/MainView.java</file>
-            <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/model/GroomData.java</file>
-            <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/connect/connector.java</file>
             <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/control/controller.java</file>
+            <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/model/ModelData.java</file>
             <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/view/GroomingKcg.java</file>
-            <file>file:/D:/AKuliah/Tugas%20Semester%204/praktikum/GroomingKcg/GroomingKcg/GroomingKcg/src/DAOgroom/catGroomDAO.java</file>
         </group>
     </open-files>
 </project-private>
