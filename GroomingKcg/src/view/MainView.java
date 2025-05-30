@@ -259,7 +259,7 @@ public class MainView extends javax.swing.JFrame {
         });
         jPanel1.add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 630));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 630));
 
         HapusButton2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         HapusButton2.setText("Hapus");
