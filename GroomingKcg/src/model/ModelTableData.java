@@ -39,9 +39,9 @@ public class ModelTableData extends AbstractTableModel {
         return switch (column) {
             case 0 -> md.get(row).getId_layanan();
             case 1 -> md.get(row).getNama_pelanggan();
-            case 2 -> md.get(row).getJadwal();
-            case 3 -> md.get(row).getId_paket();
-            case 4 -> md.get(row).getId_paket();
+            case 2 -> md.get(row).getPaket();
+            case 3 -> md.get(row).getJadwal();
+            case 4 -> md.get(row).getHarga();
             default -> null;
         };
     }
