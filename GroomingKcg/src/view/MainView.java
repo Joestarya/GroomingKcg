@@ -143,7 +143,7 @@ public class MainView extends javax.swing.JFrame {
         });
         getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 132, -1));
 
-        jLabel4.setText("ID_Pelanggan");
+        jLabel4.setText("Id Pelanggan");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -234,7 +234,7 @@ public class MainView extends javax.swing.JFrame {
     private void SimpanButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SimpanButtonMouseClicked
         // TODO add your handling code here:
         dc.insert();
-        dc.isitabel();  
+        dc.isitabel();
     }//GEN-LAST:event_SimpanButtonMouseClicked
 
     private void SimpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpanButtonActionPerformed

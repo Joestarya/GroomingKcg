@@ -23,7 +23,7 @@ public class controller {
         md = impDAO.getAll();
     }
 
-    public void isitabel(){
+    public void isitabel(){    
         md = impDAO.getAll();
         ModelTableData m = new ModelTableData(md);
         frame.getTableData().setModel(m);
@@ -32,11 +32,12 @@ public class controller {
     public void insert(){
         ModelData data = new ModelData();
         data.setNama_pelanggan(frame.getNama_pelanggan().getText());
-        data.setPaket(frame.getPaket().getText());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
+        LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText().trim(), formatter);
         data.setJadwal(jadwal);
-        impDAO.insert(data);
+        
+        data.setPaket(frame.getPaket().getText());
+                impDAO.insert(data);
     }
 
     public void edit(){

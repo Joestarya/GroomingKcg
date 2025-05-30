@@ -10,7 +10,6 @@ public class ModelData {
     private Integer id_layanan;
     private String nama_pelanggan;
     private LocalDateTime jadwal;
-    private Integer id_paket;
     
     //tabel paket
     private String paket;
@@ -41,13 +40,7 @@ public class ModelData {
         this.jadwal = jadwal;
     }
 
-    public Integer getId_paket() {
-        return id_paket;
-    }
 
-    public void setId_paket(Integer id_paket) {
-        this.id_paket = id_paket;
-    }
 
     public String getPaket() {
         return paket;
