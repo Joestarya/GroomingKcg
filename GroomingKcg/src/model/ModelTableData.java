@@ -7,8 +7,8 @@ import javax.swing.table.AbstractTableModel;
  * @author Snndita
  */
 public class ModelTableData extends AbstractTableModel {
-    List<modelData> md;
-    public ModelTableData(List<modelData>dp) {
+    List<ModelData> md;
+    public ModelTableData(List<ModelData>dp) {
         this.md = md;
     }
 

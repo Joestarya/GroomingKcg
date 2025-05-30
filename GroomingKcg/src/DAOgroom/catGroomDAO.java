@@ -22,16 +22,16 @@ public class catGroomDAO implements implementasi {
     
     final String select = "select layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, paket.id_paket as id_paket, "
     + "paket.paket, paket.harga, paket.durasi from layanan join paket on layanan.id_paket = paket.id_paket";
-    final String insert = "INSERT INTO buku (nama_pelanggan, jadwal, id_paket) VALUES (?, ?, ?)";
-    final String edit = "UPDATE buku SET nama_pelanggan=?, jadwal=?, id_paket=? WHERE id_layanan=?";
-    final String delete = "delete from buku where id_layanan=?";
+    final String insert = "INSERT INTO layanan (nama_pelanggan, jadwal, id_paket) VALUES (?, ?, ?)";
+    final String edit = "UPDATE layanan SET nama_pelanggan=?, jadwal=?, id_paket=? WHERE id_layanan=?";
+    final String delete = "delete from layanan where id_layanan=?";
     
     public catGroomDAO() {
         connection = connector.connection();
     }
 
     @Override
-    public void insert(modelData d) {
+    public void insert(ModelData d) {
         PreparedStatement statement = null;
         try{
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
@@ -55,7 +55,7 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public void edit(modelData d) {
+    public void edit(ModelData d) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -65,7 +65,10 @@ public class catGroomDAO implements implementasi {
     }
 
     @Override
-    public List<modelData> getAll() {
+    public List<ModelData> getAll() {
+        List<ModelData> list = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;   
     }
     
 }

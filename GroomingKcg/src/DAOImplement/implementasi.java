@@ -8,9 +8,9 @@ import java.util.List;
  * @author Snndita
  */
 public interface implementasi {
-    public void insert(modelData d);
-    public void edit(modelData d);
+    public void insert(ModelData d);
+    public void edit(ModelData d);
     public void delete(int id_layanan);
-    public List<modelData> getAll();
+    public List<ModelData> getAll();
 
 }
