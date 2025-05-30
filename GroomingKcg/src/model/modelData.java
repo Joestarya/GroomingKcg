@@ -6,10 +6,16 @@ import java.time.LocalDateTime;
  * @author Snndita
  */
 public class ModelData {
+    //tabel layanan
     private Integer id_layanan;
     private String nama_pelanggan;
     private LocalDateTime jadwal;
     private Integer id_paket;
+    
+    //tabel paket
+    private String paket;
+    private Double harga;
+    private Integer durasi;
 
     public Integer getId_layanan() {
         return id_layanan;
@@ -41,6 +47,30 @@ public class ModelData {
 
     public void setId_paket(Integer id_paket) {
         this.id_paket = id_paket;
+    }
+
+    public String getPaket() {
+        return paket;
+    }
+
+    public void setPaket(String paket) {
+        this.paket = paket;
+    }
+
+    public Double getHarga() {
+        return harga;
+    }
+
+    public void setHarga(Double harga) {
+        this.harga = harga;
+    }
+
+    public Integer getDurasi() {
+        return durasi;
+    }
+
+    public void setDurasi(Integer durasi) {
+        this.durasi = durasi;
     }
     
     
