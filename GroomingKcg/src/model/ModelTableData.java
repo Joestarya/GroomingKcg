@@ -8,7 +8,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModelTableData extends AbstractTableModel {
     List<ModelData> md;
-    public ModelTableData(List<ModelData>dp) {
+    public ModelTableData(List<ModelData>md) {
         this.md = md;
     }
 
@@ -28,7 +28,8 @@ public class ModelTableData extends AbstractTableModel {
             case 0 -> "id_layanan";
             case 1 -> "nama_pelanggan";
             case 2 -> "paket";
-            case 4 -> "jadwal";
+            case 3 -> "jadwal";
+            case 4 -> "harga";
             default -> null;
         };
     }
@@ -40,7 +41,7 @@ public class ModelTableData extends AbstractTableModel {
             case 1 -> md.get(row).getNama_pelanggan();
             case 2 -> md.get(row).getJadwal();
             case 3 -> md.get(row).getId_paket();
-                //dari paket blm masuk
+            case 4 -> md.get(row).getId_paket();
             default -> null;
         };
     }

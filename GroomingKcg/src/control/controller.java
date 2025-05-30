@@ -26,7 +26,7 @@ public class controller {
     public void isitabel(){
         md = impDAO.getAll();
         ModelTableData m = new ModelTableData(md);
-        //frame.getTabelData().setModel(m);
+        frame.getTableData().setModel(m);
     }
 
     public void insert(){
