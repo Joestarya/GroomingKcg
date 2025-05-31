@@ -3,7 +3,9 @@ import java.util.List;
 import DAOgroom.catGroomDAO;
 import DAOImplement.implementasi;
 import model.*;
+import model.TableDataPaket;
 import view.MainView;
+import view.TablePaket;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -14,8 +16,10 @@ import java.time.format.DateTimeFormatter;
 
 public class controller {
     MainView frame;
+    view.TablePaket frame1;
     implementasi impDAO;
     List<ModelData> md;
+    List<model.TableDataPaket> tp;
 
     public controller(MainView frame) {
         this.frame = frame;
@@ -23,10 +27,23 @@ public class controller {
         md = impDAO.getAll();
     }
 
+    public controller(TablePaket frame1){
+        this.frame1 = frame1;
+        impDAO = new catGroomDAO();
+        tp = impDAO.getTablePaket();
+    }
+    
+    
     public void isitabel(){    
         md = impDAO.getAll();
         ModelTableData m = new ModelTableData(md);
         frame.getTableData().setModel(m);
+    }
+    
+    public void isitablepaket(){
+        tp = impDAO.getTablePaket();
+        ModelTablePaket mtp = new ModelTablePaket(tp);
+        frame1.getTablePaket().setModel(mtp);
     }
 
     public void insert(){

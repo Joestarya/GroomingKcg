@@ -47,22 +47,20 @@ public class MainView extends javax.swing.JFrame {
         Paket = new javax.swing.JTextField();
         Jadwal = new javax.swing.JTextField();
         UpdateButton = new javax.swing.JButton();
+        Clear = new javax.swing.JButton();
         SimpanButton = new javax.swing.JButton();
-        HapusButton = new javax.swing.JButton();
+        HapusButton1 = new javax.swing.JButton();
+        LihatTabelPaket = new javax.swing.JButton();
         Id_layanan = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         PaketChoice = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableData = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        Clear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        HapusButton1 = new javax.swing.JButton();
-        HapusButton2 = new javax.swing.JButton();
-        HapusButton3 = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -106,6 +104,11 @@ public class MainView extends javax.swing.JFrame {
                 JadwalActionPerformed(evt);
             }
         });
+        Jadwal.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                JadwalPropertyChange(evt);
+            }
+        });
         Jadwal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JadwalKeyTyped(evt);
@@ -120,7 +123,16 @@ public class MainView extends javax.swing.JFrame {
                 UpdateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 100, 30));
+
+        Clear.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        Clear.setText("Clear");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 90, 30));
 
         SimpanButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         SimpanButton.setText("Simpan");
@@ -134,16 +146,30 @@ public class MainView extends javax.swing.JFrame {
                 SimpanButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+        getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 90, 30));
 
-        HapusButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        HapusButton.setText("Hapus");
-        HapusButton.addActionListener(new java.awt.event.ActionListener() {
+        HapusButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        HapusButton1.setText("Hapus");
+        HapusButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HapusButtonActionPerformed(evt);
+                HapusButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(HapusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+        getContentPane().add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 80, 30));
+
+        LihatTabelPaket.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LihatTabelPaket.setText("Lihat Paket");
+        LihatTabelPaket.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LihatTabelPaketMouseClicked(evt);
+            }
+        });
+        LihatTabelPaket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LihatTabelPaketActionPerformed(evt);
+            }
+        });
+        getContentPane().add(LihatTabelPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 100, 30));
 
         Id_layanan.setEditable(false);
         Id_layanan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -154,7 +180,9 @@ public class MainView extends javax.swing.JFrame {
         });
         getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 150, 30));
 
+        PaketChoice.setBackground(new java.awt.Color(255, 153, 0));
         PaketChoice.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        PaketChoice.setForeground(new java.awt.Color(255, 255, 255));
         PaketChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dry Grooming", "Grooming Anti Kutu", "Grooming Lengkap", "Grooming Mandi" }));
         PaketChoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,23 +231,17 @@ public class MainView extends javax.swing.JFrame {
             TableData.getColumnModel().getColumn(3).setHeaderValue("Title 4");
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 580, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 580, 230));
 
         jLabel4.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel4.setText("Id Pelanggan");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, 30));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 710, 470));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Clear.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        Clear.setText("Clear");
-        Clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 320, 80, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -245,39 +267,9 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 15, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 710, 470));
-
-        HapusButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        HapusButton1.setText("Hapus");
-        HapusButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HapusButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 630));
-
-        HapusButton2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        HapusButton2.setText("Hapus");
-        HapusButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HapusButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(HapusButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
-
-        HapusButton3.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        HapusButton3.setText("Hapus");
-        HapusButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HapusButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(HapusButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,12 +283,6 @@ public class MainView extends javax.swing.JFrame {
         dc.edit();
         dc.isitabel();
     }//GEN-LAST:event_UpdateButtonActionPerformed
-
-    private void HapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButtonActionPerformed
-        // TODO add your handling code here:
-        dc.delete();
-        dc.isitabel();
-    }//GEN-LAST:event_HapusButtonActionPerformed
 
     private void Id_layananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_layananActionPerformed
         // TODO add your handling code here:
@@ -353,20 +339,29 @@ public class MainView extends javax.swing.JFrame {
 
     private void HapusButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButton1ActionPerformed
         // TODO add your handling code here:
+        dc.delete();
+        dc.isitabel();
     }//GEN-LAST:event_HapusButton1ActionPerformed
-
-    private void HapusButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HapusButton2ActionPerformed
-
-    private void HapusButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HapusButton3ActionPerformed
 
     private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
         // TODO add your handling code here:
         dc.clear();
     }//GEN-LAST:event_ClearActionPerformed
+
+    private void JadwalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JadwalPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JadwalPropertyChange
+
+    private void LihatTabelPaketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatTabelPaketActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LihatTabelPaketActionPerformed
+
+    private void LihatTabelPaketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LihatTabelPaketMouseClicked
+        // TODO add your handling code here:
+        TablePaket tp = new TablePaket();
+        tp.show();
+        dispose();
+    }//GEN-LAST:event_LihatTabelPaketMouseClicked
 
     /**
      * @param args the command line arguments
@@ -405,12 +400,10 @@ public class MainView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear;
-    private javax.swing.JButton HapusButton;
     private javax.swing.JButton HapusButton1;
-    private javax.swing.JButton HapusButton2;
-    private javax.swing.JButton HapusButton3;
     private javax.swing.JTextField Id_layanan;
     private javax.swing.JTextField Jadwal;
+    private javax.swing.JButton LihatTabelPaket;
     private javax.swing.JTextField Nama_pelanggan;
     private javax.swing.JTextField Paket;
     private javax.swing.JComboBox<String> PaketChoice;
@@ -442,17 +435,42 @@ public class MainView extends javax.swing.JFrame {
         return Id_layanan;
     }
 
+    
     public void setId_layanan(JTextField Id_layanan) {
         this.Id_layanan = Id_layanan;
     }
+
+    public JButton getClear() {
+        return Clear;
+    }
+
+    public void setClear(JButton Clear) {
+        this.Clear = Clear;
+    }
+
+    public JButton getLihatTabelPaket() {
+        return LihatTabelPaket;
+    }
+
+    public void setLihatTabelPaket(JButton LihatTabelPaket) {
+        this.LihatTabelPaket = LihatTabelPaket;
+    }
+
+    public JComboBox<String> getPaketChoice() {
+        return PaketChoice;
+    }
+
+    public void setPaketChoice(JComboBox<String> PaketChoice) {
+        this.PaketChoice = PaketChoice;
+    }
     
     
-    public JButton getHapusButton() {
-        return HapusButton;
+    public JButton getHapusButton1() {
+        return HapusButton1;
     }
 
     public void setHapusButton(JButton HapusButton) {
-        this.HapusButton = HapusButton;
+        this.HapusButton1 = HapusButton;
     }
 
     public JTextField getJadwal() {

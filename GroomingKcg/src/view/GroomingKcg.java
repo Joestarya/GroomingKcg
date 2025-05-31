@@ -4,15 +4,12 @@
  */
 package view;
 
-/**
- *
- * @author L E N O V O
- */
+
+
 public class GroomingKcg {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String[] args) {
         MainView v = new MainView();
         v.setVisible(true);

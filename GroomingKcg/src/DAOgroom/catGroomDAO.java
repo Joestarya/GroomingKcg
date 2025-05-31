@@ -63,6 +63,37 @@ public class catGroomDAO implements implementasi {
             }
         } return list;
     }
+    
+    @Override
+        public List<TableDataPaket> getTablePaket() {
+        List<TableDataPaket> list = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try{
+            statement = connection.prepareStatement(select);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                TableDataPaket tp = new TableDataPaket();
+                tp.setPaket(resultSet.getString("paket"));
+                tp.setHarga(resultSet.getDouble("harga"));
+                tp.setDurasi(resultSet.getInt("durasi"));
+                list.add(tp);
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(catGroomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try{
+                if(resultSet != null) resultSet.close();
+                if(statement != null) statement.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } return list;
+    }
+
+    
 
     @Override
     public void insert(ModelData d) {

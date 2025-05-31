@@ -13,4 +13,6 @@ public interface implementasi {
     public void delete(int id_layanan);
     public List<ModelData> getAll();
 
+    public List<TableDataPaket> getTablePaket();
+
 }
