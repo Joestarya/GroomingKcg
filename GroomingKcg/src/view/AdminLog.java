@@ -6,9 +6,11 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import log.*;
 import model.ModelAdmin;
+
 
 /**
  *
@@ -21,7 +23,9 @@ public class AdminLog extends javax.swing.JFrame {
      */
     public AdminLog() {
         initComponents();
+        JPasswordField passwordField = new JPasswordField();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -33,20 +37,28 @@ public class AdminLog extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JTextField();
         login = new javax.swing.JButton();
         register = new javax.swing.JButton();
         lupaSandi = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        show = new javax.swing.JLabel();
+        hide = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+
+        jLabel5.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("ADMIN ONLY");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 6, -1, -1));
 
         usernameField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         usernameField.addActionListener(new java.awt.event.ActionListener() {
@@ -54,8 +66,7 @@ public class AdminLog extends javax.swing.JFrame {
                 usernameFieldActionPerformed(evt);
             }
         });
-
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        getContentPane().add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 108, 248, -1));
 
         login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         login.setText("Login");
@@ -64,6 +75,7 @@ public class AdminLog extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 267, 93, -1));
 
         register.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         register.setText("Register");
@@ -72,6 +84,7 @@ public class AdminLog extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
+        getContentPane().add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 267, -1, -1));
 
         lupaSandi.setText("Lupa sandi");
         lupaSandi.addActionListener(new java.awt.event.ActionListener() {
@@ -79,74 +92,43 @@ public class AdminLog extends javax.swing.JFrame {
                 lupaSandiActionPerformed(evt);
             }
         });
+        getContentPane().add(lupaSandi, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 317, -1, -1));
 
         jLabel2.setText("Username");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 86, -1, -1));
 
         jLabel3.setText("Password");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 174, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 33, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(lupaSandi))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordField)
-                            .addComponent(usernameField)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                                .addComponent(register))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(jLabel3))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login)
-                    .addComponent(register))
-                .addGap(18, 18, 18)
-                .addComponent(lupaSandi)
-                .addGap(48, 48, 48))
-        );
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/hide.png"))); // NOI18N
+        show.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showMouseClicked(evt);
+            }
+        });
+        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 37, -1));
+
+        hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/visible.png"))); // NOI18N
+        hide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hideMouseClicked(evt);
+            }
+        });
+        jPanel2.add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, -1));
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 247, 32));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,7 +139,7 @@ public class AdminLog extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String username = usernameField.getText();
-        String password = passwordField.getText();
+        String password = jPasswordField1.getText();
         
         logControl login = new logControl();
         boolean b = login.cekLogin(username, password);
@@ -177,7 +159,7 @@ public class AdminLog extends javax.swing.JFrame {
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         String username = usernameField.getText();
-        String password = passwordField.getText();
+        String password = jPasswordField1.getText();
         
         if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Username dan password harus diisi!");
@@ -191,6 +173,24 @@ public class AdminLog extends javax.swing.JFrame {
         logControl regis = new logControl();
         regis.regis(admin);
     }//GEN-LAST:event_registerActionPerformed
+
+    private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
+        // TODO add your handling code here:
+        jPasswordField1.setEchoChar((char)0);
+        show.setVisible(false);
+        hide.setVisible(true);
+    }//GEN-LAST:event_showMouseClicked
+
+    private void hideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseClicked
+
+        jPasswordField1.setEchoChar('*');
+        show.setVisible(true);
+        hide.setVisible(false);
+    }//GEN-LAST:event_hideMouseClicked
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,14 +228,18 @@ public class AdminLog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel hide;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton login;
     private javax.swing.JButton lupaSandi;
-    private javax.swing.JTextField passwordField;
     private javax.swing.JButton register;
+    private javax.swing.JLabel show;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 
@@ -255,13 +259,15 @@ public class AdminLog extends javax.swing.JFrame {
         this.lupaSandi = lupaSandi;
     }
 
-    public JTextField getPasswordField() {
-        return passwordField;
+    public JPasswordField getjPasswordField1() {
+        return jPasswordField1;
     }
 
-    public void setPasswordField(JTextField passwordField) {
-        this.passwordField = passwordField;
+    public void setjPasswordField1(JPasswordField jPasswordField1) {
+        this.jPasswordField1 = jPasswordField1;
     }
+
+  
 
     public JButton getRegister() {
         return register;
