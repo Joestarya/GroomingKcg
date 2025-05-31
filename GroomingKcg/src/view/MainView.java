@@ -56,11 +56,15 @@ public class MainView extends javax.swing.JFrame {
         PaketChoice = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableData = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        comboxSearch = new javax.swing.JComboBox<>();
+        search = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -233,6 +237,10 @@ public class MainView extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 580, 230));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("Cari Berdasarkan");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, -1, -1));
+
         jLabel4.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel4.setText("Id Pelanggan");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, 30));
@@ -264,10 +272,28 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel7)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+
+        comboxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id Layanan", "Nama Pelanggan", "Paket" }));
+        comboxSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxSearchActionPerformed(evt);
+            }
+        });
+        jPanel1.add(comboxSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 370, -1, -1));
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 370, 120, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setText("Cari");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 370, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 630));
 
@@ -363,6 +389,23 @@ public class MainView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_LihatTabelPaketMouseClicked
 
+    private void comboxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxSearchActionPerformed
+        
+    }//GEN-LAST:event_comboxSearchActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String kategori = comboxSearch.getSelectedItem().toString();
+        String keyword = search.getText().trim();
+        String column = "";
+        switch (kategori){
+            case "Id Layanan" -> column = "id_layanan";
+            case "Nama Pelanggan" -> column = "nama_pelanggan";
+            case "Paket" -> column = "paket";
+        }
+        dc.search(column, keyword);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -410,6 +453,8 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton SimpanButton;
     private javax.swing.JTable TableData;
     private javax.swing.JButton UpdateButton;
+    private javax.swing.JComboBox<String> comboxSearch;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -417,10 +462,12 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField search;
     // End of variables declaration//GEN-END:variables
 
     public controller getDc() {

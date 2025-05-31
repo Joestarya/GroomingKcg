@@ -3,9 +3,7 @@ import java.util.List;
 import DAOgroom.catGroomDAO;
 import DAOImplement.implementasi;
 import model.*;
-import model.TableDataPaket;
-import view.MainView;
-import view.TablePaket;
+import view.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -15,12 +13,14 @@ import java.time.format.DateTimeFormatter;
 
 
 public class controller {
-    MainView frame;
-    view.TablePaket frame1;
+    MainView frame;    
+    TablePaket frame1;
+    AdminLog frame2;
+    LupaSandi frame3;
     implementasi impDAO;
     List<ModelData> md;
-    List<model.TableDataPaket> tp;
-
+    List<TableDataPaket> tp;
+    
     public controller(MainView frame) {
         this.frame = frame;
         impDAO = new catGroomDAO();
@@ -32,7 +32,6 @@ public class controller {
         impDAO = new catGroomDAO();
         tp = impDAO.getTablePaket();
     }
-    
     
     public void isitabel(){    
         md = impDAO.getAll();
@@ -77,12 +76,12 @@ public class controller {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("id_layanan");
         model.addColumn("nama_pelanggan");
+        model.addColumn("jadwal"); 
         model.addColumn("paket");
-        model.addColumn("jadwal");
 
         try {
             Connection conn = connector.connection();
-            String sql = "SELECT * FROM grooming WHERE " + column + " LIKE ?";
+            String sql = "SELECT * FROM layanan WHERE " + column + " LIKE ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + keyword + "%");
             ResultSet rs = ps.executeQuery();
@@ -90,11 +89,11 @@ public class controller {
                 model.addRow(new Object[]{
                     rs.getInt("id_layanan"),
                     rs.getString("nama_pelanggan"),
+                    rs.getString("jadwal"), 
                     rs.getString("paket"),
-                    rs.getString("jadwal"),
                 });
             }
-            //frame.getTabelData().setModel(model);
+            frame.getTableData().setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
@@ -106,5 +105,7 @@ public class controller {
         frame.getJadwal().setText("");
         frame.getPaket().setText("");
     }
+    
+    
 }
 
