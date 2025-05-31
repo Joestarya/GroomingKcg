@@ -4,6 +4,12 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import log.*;
+import model.ModelAdmin;
+
 /**
  *
  * @author Snndita
@@ -15,6 +21,7 @@ public class AdminLog extends javax.swing.JFrame {
      */
     public AdminLog() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -149,15 +156,40 @@ public class AdminLog extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        
+        logControl login = new logControl();
+        boolean b = login.cekLogin(username, password);
+        
+        if(b) {
+            MainView view = new MainView();
+            view.show();
+            this.hide();
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void lupaSandiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lupaSandiActionPerformed
-        // TODO add your handling code here:
+        LupaSandi ls = new LupaSandi();
+        ls.show();
+        this.hide();
     }//GEN-LAST:event_lupaSandiActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+        String username = usernameField.getText();
+        String password = passwordField.getText();
         
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Username dan password harus diisi!");
+            return;
+        }
+        
+        ModelAdmin admin = new ModelAdmin();
+        admin.setUsername(username);
+        admin.setPassword(password);
+        
+        logControl regis = new logControl();
+        regis.regis(admin);
     }//GEN-LAST:event_registerActionPerformed
 
     /**
@@ -206,4 +238,45 @@ public class AdminLog extends javax.swing.JFrame {
     private javax.swing.JButton register;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getLogin() {
+        return login;
+    }
+
+    public void setLogin(JButton login) {
+        this.login = login;
+    }
+
+    public JButton getLupaSandi() {
+        return lupaSandi;
+    }
+
+    public void setLupaSandi(JButton lupaSandi) {
+        this.lupaSandi = lupaSandi;
+    }
+
+    public JTextField getPasswordField() {
+        return passwordField;
+    }
+
+    public void setPasswordField(JTextField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    public JButton getRegister() {
+        return register;
+    }
+
+    public void setRegister(JButton register) {
+        this.register = register;
+    }
+
+    public JTextField getUsernameField() {
+        return usernameField;
+    }
+
+    public void setUsernameField(JTextField usernameField) {
+        this.usernameField = usernameField;
+    }
+    
 }

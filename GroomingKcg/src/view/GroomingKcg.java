@@ -11,7 +11,7 @@ public class GroomingKcg {
     
     
     public static void main(String[] args) {
-        MainView v = new MainView();
+        AdminLog v = new AdminLog();
         v.setVisible(true);
         v.setLocationRelativeTo(null);
     }

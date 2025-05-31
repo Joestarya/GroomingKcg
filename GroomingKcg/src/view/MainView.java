@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
@@ -66,6 +62,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         search = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -308,6 +305,15 @@ public class MainView extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 370, -1, 30));
 
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 530, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 580));
 
         pack();
@@ -425,6 +431,12 @@ public class MainView extends javax.swing.JFrame {
         dc.isitabel();
     }//GEN-LAST:event_TampilkanActionPerformed
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        AdminLog al = new AdminLog();
+        al.show();
+        dispose();
+    }//GEN-LAST:event_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -487,6 +499,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logout;
     private javax.swing.JTextField search;
     // End of variables declaration//GEN-END:variables
 

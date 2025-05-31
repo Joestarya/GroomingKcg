@@ -4,6 +4,11 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import log.logControl;
+
 /**
  *
  * @author Snndita
@@ -15,6 +20,7 @@ public class LupaSandi extends javax.swing.JFrame {
      */
     public LupaSandi() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,30 +33,40 @@ public class LupaSandi extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        usernameField = new javax.swing.JTextField();
+        ubahPassword = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        passwordField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("UBAH PASSWORD");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setText("Ubah Password");
+        ubahPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ubahPassword.setText("Ubah Password");
+        ubahPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahPasswordActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Kembali");
+        kembali.setText("Kembali");
+        kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Username");
 
         jLabel3.setText("Password Baru");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,22 +78,22 @@ public class LupaSandi extends javax.swing.JFrame {
                         .addGap(143, 143, 143)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(194, 194, 194)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)))
+                            .addComponent(passwordField)
+                            .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(218, 218, 218)
-                        .addComponent(jButton1))
+                        .addComponent(ubahPassword))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(262, 262, 262)
-                        .addComponent(jButton2)))
+                        .addComponent(kembali))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(270, 270, 270)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,20 +104,45 @@ public class LupaSandi extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(jButton1)
+                .addComponent(ubahPassword)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(kembali)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
+        AdminLog al = new AdminLog();
+        al.show();
+        dispose();
+    }//GEN-LAST:event_kembaliActionPerformed
+
+    private void ubahPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahPasswordActionPerformed
+        String username = usernameField.getText();
+        String newPassword = new String(passwordField.getText());
+
+        if (username.isEmpty() || newPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!");
+            return;
+        }
+
+        logControl sandi = new logControl();
+        boolean sukses = sandi.gantiPassword(username, newPassword);
+
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Password telah diubah, silakan login kembali");
+        }else{
+            JOptionPane.showMessageDialog(this, "Username tidak ditemukan!");
+        }
+    }//GEN-LAST:event_ubahPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,12 +180,46 @@ public class LupaSandi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton kembali;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JButton ubahPassword;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public void setKembali(JButton kembali) {
+        this.kembali = kembali;
+    }
+
+    public JTextField getPasswordField() {
+        return passwordField;
+    }
+
+    public void setPasswordField(JTextField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    public JButton getUbahPassword() {
+        return ubahPassword;
+    }
+
+    public void setUbahPassword(JButton ubahPassword) {
+        this.ubahPassword = ubahPassword;
+    }
+
+    public JTextField getUsernameField() {
+        return usernameField;
+    }
+
+    public void setUsernameField(JTextField usernameField) {
+        this.usernameField = usernameField;
+    }
+
+    
 }
