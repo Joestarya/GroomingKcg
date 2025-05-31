@@ -24,7 +24,7 @@ public class MainView extends javax.swing.JFrame {
     controller dc;
     public MainView() {
         initComponents();
-        
+        setLocationRelativeTo(null); 
         dc = new controller(this);
         dc.isitabel();
     }
@@ -56,13 +56,14 @@ public class MainView extends javax.swing.JFrame {
         PaketChoice = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableData = new javax.swing.JTable();
+        comboxSearch = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        Tampilkan = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        comboxSearch = new javax.swing.JComboBox<>();
         search = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
@@ -161,7 +162,9 @@ public class MainView extends javax.swing.JFrame {
         });
         getContentPane().add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 80, 30));
 
-        LihatTabelPaket.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        LihatTabelPaket.setBackground(new java.awt.Color(255, 153, 0));
+        LihatTabelPaket.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        LihatTabelPaket.setForeground(new java.awt.Color(255, 255, 255));
         LihatTabelPaket.setText("Lihat Paket");
         LihatTabelPaket.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,7 +176,7 @@ public class MainView extends javax.swing.JFrame {
                 LihatTabelPaketActionPerformed(evt);
             }
         });
-        getContentPane().add(LihatTabelPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 100, 30));
+        getContentPane().add(LihatTabelPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 130, 40));
 
         Id_layanan.setEditable(false);
         Id_layanan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -187,7 +190,7 @@ public class MainView extends javax.swing.JFrame {
         PaketChoice.setBackground(new java.awt.Color(255, 153, 0));
         PaketChoice.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         PaketChoice.setForeground(new java.awt.Color(255, 255, 255));
-        PaketChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dry Grooming", "Grooming Anti Kutu", "Grooming Lengkap", "Grooming Mandi" }));
+        PaketChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dry Grooming", "Grooming Anti Kutu", "Grooming Lengkap", "Grooming Mandi", "Mandi Air", " " }));
         PaketChoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PaketChoiceActionPerformed(evt);
@@ -202,7 +205,7 @@ public class MainView extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PaketChoice)
+            .addComponent(PaketChoice, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 190, 30));
@@ -237,13 +240,31 @@ public class MainView extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 580, 230));
 
+        comboxSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comboxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id Layanan", "Nama Pelanggan", "Paket" }));
+        comboxSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxSearchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboxSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 170, 30));
+
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Cari Berdasarkan");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
         jLabel4.setText("Id Pelanggan");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, 30));
+
+        Tampilkan.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        Tampilkan.setText("Tampil Semua");
+        Tampilkan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TampilkanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Tampilkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 130, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 710, 470));
@@ -276,26 +297,18 @@ public class MainView extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 370, 180, 30));
 
-        comboxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id Layanan", "Nama Pelanggan", "Paket" }));
-        comboxSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboxSearchActionPerformed(evt);
-            }
-        });
-        jPanel1.add(comboxSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 370, -1, -1));
-        jPanel1.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 370, 120, -1));
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Cari");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 370, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 370, -1, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 630));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -360,6 +373,7 @@ public class MainView extends javax.swing.JFrame {
         Nama_pelanggan.setText(TableData.getValueAt(baris, 1).toString());
         Paket.setText(TableData.getValueAt(baris, 2).toString());
         Jadwal.setText(TableData.getValueAt(baris, 3).toString());
+        
 
     }//GEN-LAST:event_TableDataMouseClicked
 
@@ -405,6 +419,11 @@ public class MainView extends javax.swing.JFrame {
         dc.search(column, keyword);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TampilkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TampilkanActionPerformed
+        // TODO add your handling code here:
+        dc.isitabel();
+    }//GEN-LAST:event_TampilkanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,6 +471,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> PaketChoice;
     private javax.swing.JButton SimpanButton;
     private javax.swing.JTable TableData;
+    private javax.swing.JButton Tampilkan;
     private javax.swing.JButton UpdateButton;
     private javax.swing.JComboBox<String> comboxSearch;
     private javax.swing.JButton jButton1;

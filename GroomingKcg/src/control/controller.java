@@ -76,12 +76,16 @@ public class controller {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("id_layanan");
         model.addColumn("nama_pelanggan");
-        model.addColumn("jadwal"); 
+         
         model.addColumn("paket");
+        model.addColumn("jadwal");
+        model.addColumn("harga");
 
         try {
             Connection conn = connector.connection();
-            String sql = "SELECT * FROM layanan WHERE " + column + " LIKE ?";
+            String sql = "SELECT layanan.*, datapaket.harga " +
+             "FROM layanan JOIN datapaket ON layanan.paket = datapaket.paket " +
+             "WHERE layanan." + column + " LIKE ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + keyword + "%");
             ResultSet rs = ps.executeQuery();
@@ -89,8 +93,10 @@ public class controller {
                 model.addRow(new Object[]{
                     rs.getInt("id_layanan"),
                     rs.getString("nama_pelanggan"),
-                    rs.getString("jadwal"), 
+                    
                     rs.getString("paket"),
+                    rs.getString("jadwal"), 
+                    rs.getFloat("harga"),
                 });
             }
             frame.getTableData().setModel(model);

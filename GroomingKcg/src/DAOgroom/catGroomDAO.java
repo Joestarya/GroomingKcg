@@ -19,12 +19,18 @@ public class catGroomDAO implements implementasi {
     LocalDateTime now = LocalDateTime.now();
     Timestamp timestamp = Timestamp.valueOf(now);
     
-    final String select = "select layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, paket.paket as paket, "
-    + "paket.paket, paket.harga, paket.durasi from layanan join paket on layanan.paket = paket.paket";
-    
-    final String insert = "INSERT INTO layanan (nama_pelanggan, paket, jadwal) VALUES (?, ?, ?)";
-    final String edit =   "UPDATE layanan SET nama_pelanggan=?, paket=?, jadwal=?  WHERE id_layanan=?";
-    final String delete = "delete from layanan where id_layanan=?";
+    final String select = "SELECT layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, " +
+                      "datapaket.paket AS paket, datapaket.harga, datapaket.durasi " +
+                      "FROM layanan JOIN datapaket ON layanan.paket = datapaket.paket";
+
+    final String select1 = "SELECT paket, harga, durasi FROM datapaket";
+
+    final String insert  = "INSERT INTO layanan (nama_pelanggan, paket, jadwal) VALUES (?, ?, ?)";
+
+    final String edit    = "UPDATE layanan SET nama_pelanggan=?, paket=?, jadwal=? WHERE id_layanan=?";
+
+    final String delete  = "DELETE FROM layanan WHERE id_layanan=?";
+
     
     public catGroomDAO() {
         connection = connector.connection();
@@ -71,9 +77,9 @@ public class catGroomDAO implements implementasi {
         ResultSet resultSet = null;
         
         try{
-            statement = connection.prepareStatement(select);
+            statement = connection.prepareStatement(select1);
             resultSet = statement.executeQuery();
-            
+                    
             while(resultSet.next()){
                 TableDataPaket tp = new TableDataPaket();
                 tp.setPaket(resultSet.getString("paket"));
