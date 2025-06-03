@@ -60,7 +60,7 @@ public class controller {
                     rs.getString("paket"),
                     rs.getString("jadwal"), 
                     rs.getFloat("harga"),
-                    rs.getFloat("jumlah_kucing"),
+                    rs.getInt("jumlah_kucing"),
                     rs.getFloat("harga_total")
                 });
             }
