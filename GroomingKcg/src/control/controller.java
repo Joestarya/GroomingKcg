@@ -104,42 +104,43 @@ public class controller {
         impDAO.delete(id_layanan);
     }
 
-    public void search(String column, String keyword){
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("id_layanan");
-        model.addColumn("nama_pelanggan");
-         
-        model.addColumn("paket");
-        model.addColumn("jadwal");
-        model.addColumn("harga");
-        model.addColumn("jumlah_kucing");
-        model.addColumn("harga_total");
+    public void search(String column, String keyword) {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("id_layanan");
+    model.addColumn("nama_pelanggan");
+    model.addColumn("paket");
+    model.addColumn("jadwal");
+    model.addColumn("harga");
+    model.addColumn("jumlah_kucing");
+    model.addColumn("harga_total");
 
-        try {
-            Connection conn = connector.connection();
-            String sql = "SELECT layanan.*, datapaket.harga " +
-             "FROM layanan JOIN datapaket ON layanan.paket = datapaket.paket " +
-             "WHERE layanan." + column + " LIKE ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "%" + keyword + "%");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                model.addRow(new Object[]{
-                    rs.getInt("id_layanan"),
-                    rs.getString("nama_pelanggan"),
-                    
-                    rs.getString("paket"),
-                    rs.getString("jadwal"), 
-                    rs.getFloat("harga"),
-                    rs.getFloat("jumlah_kucing"),
-                    rs.getFloat("harga_total")
-                });
-            }
-            frame.getTableData().setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+    try {
+        Connection conn = connector.connection();
+        String sql = "SELECT layanan.*, datapaket.harga " +
+                     "FROM layanan JOIN datapaket ON layanan.paket = datapaket.paket " +
+                     "WHERE layanan." + column + " LIKE ? " +
+                     "ORDER BY jadwal ASC";  // <-- disini sorting-nya, bisa ganti ASC/DESC
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, "%" + keyword + "%");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            model.addRow(new Object[]{
+                rs.getInt("id_layanan"),
+                rs.getString("nama_pelanggan"),
+                rs.getString("paket"),
+                rs.getString("jadwal"),
+                rs.getFloat("harga"),
+                rs.getFloat("jumlah_kucing"),
+                rs.getFloat("harga_total")
+            });
         }
+        frame.getTableData().setModel(model);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
     }
+}
+
         
     public void clear() {
         frame.getId_layanan().setText("");

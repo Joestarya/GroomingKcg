@@ -270,7 +270,7 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 730, 230));
 
         comboxSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id Layanan", "Nama Pelanggan", "Paket" }));
+        comboxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id Layanan", "Nama Pelanggan", "Paket", "Jadwal", "Jumlah Kucing", "Harga Total" }));
         comboxSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboxSearchActionPerformed(evt);
@@ -349,7 +349,7 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 580));
 
         Paket.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 276, 30));
+        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 190, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -457,6 +457,9 @@ public class MainView extends javax.swing.JFrame {
             case "Id Layanan" -> column = "id_layanan";
             case "Nama Pelanggan" -> column = "nama_pelanggan";
             case "Paket" -> column = "paket";
+            case "Jadwal" -> column = "jadwal";
+            case "Harga Total" -> column = "harga_total";
+            case "Jumlah Kucing" -> column = "jumlah_kucing";
         }
         dc.search(column, keyword);
         
