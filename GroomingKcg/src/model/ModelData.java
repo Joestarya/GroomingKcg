@@ -10,6 +10,8 @@ public class ModelData {
     private Integer id_layanan;
     private String nama_pelanggan;
     private LocalDateTime jadwal;
+    private Integer jumlah_kucing;
+    private Float harga_total;
     
     //tabel paket
     private String paket;
@@ -62,6 +64,22 @@ public class ModelData {
 
     public void setDurasi(Integer durasi) {
         this.durasi = durasi;
+    }
+
+    public Integer getJumlah_kucing() {
+        return jumlah_kucing;
+    }
+
+    public void setJumlah_kucing(Integer jumlah_kucing) {
+        this.jumlah_kucing = jumlah_kucing;
+    }
+
+    public Float getHarga_total() {
+        return harga_total;
+    }
+
+    public void setHarga_total(Float harga_total) {
+        this.harga_total = harga_total;
     }
     
     

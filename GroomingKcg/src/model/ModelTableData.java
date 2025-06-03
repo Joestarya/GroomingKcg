@@ -30,6 +30,8 @@ public class ModelTableData extends AbstractTableModel {
             case 2 -> "Paket Groomnig";
             case 3 -> "Jadwal Grooming";
             case 4 -> "Harga Grooming";
+            case 5 -> "Jumlah Kucing";
+            case 6 -> "Harga_Total";
             default -> null;
         };
     }
@@ -42,6 +44,8 @@ public class ModelTableData extends AbstractTableModel {
             case 2 -> md.get(row).getPaket();
             case 3 -> md.get(row).getJadwal();
             case 4 -> md.get(row).getHarga();
+            case 5 -> md.get(row).getJumlah_kucing();
+            case 6 -> md.get(row).getHarga_total();
             default -> null;
         };
     }

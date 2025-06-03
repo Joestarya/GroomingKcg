@@ -39,17 +39,17 @@ public class AdminLog extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        usernameField = new javax.swing.JTextField();
         login = new javax.swing.JButton();
         register = new javax.swing.JButton();
         lupaSandi = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         show = new javax.swing.JLabel();
         hide = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        usernameField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel4");
 
@@ -59,14 +59,6 @@ public class AdminLog extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("ADMIN ONLY");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 6, -1, -1));
-
-        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        usernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameFieldActionPerformed(evt);
-            }
-        });
-        getContentPane().add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 108, 248, -1));
 
         login.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         login.setText("Login");
@@ -94,12 +86,6 @@ public class AdminLog extends javax.swing.JFrame {
         });
         getContentPane().add(lupaSandi, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 317, -1, -1));
 
-        jLabel2.setText("Username");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 86, -1, -1));
-
-        jLabel3.setText("Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 174, -1, -1));
-
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -111,7 +97,7 @@ public class AdminLog extends javax.swing.JFrame {
                 showMouseClicked(evt);
             }
         });
-        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 37, -1));
+        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 30, -1));
 
         hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/visible.png"))); // NOI18N
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,7 +112,21 @@ public class AdminLog extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 247, 32));
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 250, 32));
+
+        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 250, -1));
+
+        jLabel2.setText("Username");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+
+        jLabel3.setText("Password");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
 

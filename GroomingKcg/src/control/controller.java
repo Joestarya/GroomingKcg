@@ -35,9 +35,39 @@ public class controller {
     }
     
     public void isitabel(){    
-        md = impDAO.getAll();
-        ModelTableData m = new ModelTableData(md);
-        frame.getTableData().setModel(m);
+        //md = impDAO.getAll();
+        //ModelTableData m = new ModelTableData(md);
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("id_layanan");
+        model.addColumn("nama_pelanggan");
+         
+        model.addColumn("paket");
+        model.addColumn("jadwal");
+        model.addColumn("harga");
+        model.addColumn("jumlah_kucing");
+        model.addColumn("harga_total");
+        try {
+            Connection conn = connector.connection();
+            String sql = "SELECT layanan.*, datapaket.harga " +
+             "FROM layanan JOIN datapaket ON layanan.paket = datapaket.paket ";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                model.addRow(new Object[]{
+                    rs.getInt("id_layanan"),
+                    rs.getString("nama_pelanggan"),
+                    
+                    rs.getString("paket"),
+                    rs.getString("jadwal"), 
+                    rs.getFloat("harga"),
+                    rs.getFloat("jumlah_kucing"),
+                    rs.getFloat("harga_total")
+                });
+            }
+            frame.getTableData().setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
     }
     
     public void isitablepaket(){
@@ -52,6 +82,7 @@ public class controller {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText().trim(), formatter);
         data.setJadwal(jadwal);
+        data.setJumlah_kucing(Integer.valueOf(frame.getJumlah_kucing().getText()));
         
         data.setPaket(frame.getPaket().getText());
                 impDAO.insert(data);
@@ -81,6 +112,8 @@ public class controller {
         model.addColumn("paket");
         model.addColumn("jadwal");
         model.addColumn("harga");
+        model.addColumn("jumlah_kucing");
+        model.addColumn("harga_total");
 
         try {
             Connection conn = connector.connection();
@@ -98,6 +131,8 @@ public class controller {
                     rs.getString("paket"),
                     rs.getString("jadwal"), 
                     rs.getFloat("harga"),
+                    rs.getFloat("jumlah_kucing"),
+                    rs.getFloat("harga_total")
                 });
             }
             frame.getTableData().setModel(model);

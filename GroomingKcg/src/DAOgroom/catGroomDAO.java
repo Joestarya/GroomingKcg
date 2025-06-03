@@ -19,15 +19,15 @@ public class catGroomDAO implements implementasi {
     LocalDateTime now = LocalDateTime.now();
     Timestamp timestamp = Timestamp.valueOf(now);
     
-    final String select = "SELECT layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, " +
+    final String select = "SELECT layanan.id_layanan, layanan.nama_pelanggan, layanan.jadwal, layanan.jumlah_kucing, layanan.harga_total," +
                       "datapaket.paket AS paket, datapaket.harga, datapaket.durasi " +
                       "FROM layanan JOIN datapaket ON layanan.paket = datapaket.paket";
 
     final String select1 = "SELECT paket, harga, durasi FROM datapaket";
 
-    final String insert  = "INSERT INTO layanan (nama_pelanggan, paket, jadwal) VALUES (?, ?, ?)";
+    final String insert  = "INSERT INTO layanan (nama_pelanggan, paket, jadwal, jumlah_kucing) VALUES (?, ?, ?, ?)";
 
-    final String edit    = "UPDATE layanan SET nama_pelanggan=?, paket=?, jadwal=? WHERE id_layanan=?";
+    final String edit    = "UPDATE layanan SET nama_pelanggan=?, paket=?, jadwal=?, jumlah_kucing=? WHERE id_layanan=?";
 
     final String delete  = "DELETE FROM layanan WHERE id_layanan=?";
 
@@ -56,6 +56,8 @@ public class catGroomDAO implements implementasi {
                 md.setPaket(resultSet.getString("paket"));
                 md.setHarga(resultSet.getDouble("harga"));
                 md.setDurasi(resultSet.getInt("durasi"));
+                md.setJumlah_kucing(resultSet.getInt("jumlah_kucing"));
+                md.setHarga_total(resultSet.getFloat("harga_total"));
                 list.add(md);
             }
         }catch (SQLException ex){
@@ -111,6 +113,7 @@ public class catGroomDAO implements implementasi {
         statement.setString(2, d.getPaket());
         // Convert LocalDateTime to Timestamp for database
         statement.setTimestamp(3, Timestamp.valueOf(d.getJadwal()));
+        statement.setInt(4, d.getJumlah_kucing());
         int executeUpdate = statement.executeUpdate();
         ResultSet rs = statement.getGeneratedKeys();
         while (rs.next()) {

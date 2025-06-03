@@ -39,8 +39,8 @@ public class MainView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         Nama_pelanggan = new javax.swing.JTextField();
-        Paket = new javax.swing.JTextField();
         Jadwal = new javax.swing.JTextField();
         UpdateButton = new javax.swing.JButton();
         Clear = new javax.swing.JButton();
@@ -48,6 +48,7 @@ public class MainView extends javax.swing.JFrame {
         HapusButton1 = new javax.swing.JButton();
         LihatTabelPaket = new javax.swing.JButton();
         Id_layanan = new javax.swing.JTextField();
+        Jumlah_kucing = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         PaketChoice = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,6 +64,7 @@ public class MainView extends javax.swing.JFrame {
         search = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         logout = new javax.swing.JButton();
+        Paket = new javax.swing.JTextField();
 
         jLabel5.setText("jLabel5");
 
@@ -78,8 +80,12 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 98, 30));
 
         jLabel3.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
-        jLabel3.setText("Jadwal");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 90, 30));
+        jLabel3.setText("Jumlah Kucing");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 120, 30));
+
+        jLabel9.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
+        jLabel9.setText("Jadwal");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 90, 30));
 
         Nama_pelanggan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Nama_pelanggan.addActionListener(new java.awt.event.ActionListener() {
@@ -87,10 +93,7 @@ public class MainView extends javax.swing.JFrame {
                 Nama_pelangganActionPerformed(evt);
             }
         });
-        getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 150, 30));
-
-        Paket.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 150, 30));
+        getContentPane().add(Nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 190, 30));
 
         Jadwal.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Jadwal.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,7 +119,7 @@ public class MainView extends javax.swing.JFrame {
                 JadwalKeyTyped(evt);
             }
         });
-        getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 150, 30));
+        getContentPane().add(Jadwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 190, 30));
 
         UpdateButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         UpdateButton.setText("Update");
@@ -125,7 +128,7 @@ public class MainView extends javax.swing.JFrame {
                 UpdateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 100, 30));
+        getContentPane().add(UpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 100, 30));
 
         Clear.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         Clear.setText("Clear");
@@ -134,7 +137,7 @@ public class MainView extends javax.swing.JFrame {
                 ClearActionPerformed(evt);
             }
         });
-        getContentPane().add(Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 90, 30));
+        getContentPane().add(Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 90, 30));
 
         SimpanButton.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         SimpanButton.setText("Simpan");
@@ -148,7 +151,7 @@ public class MainView extends javax.swing.JFrame {
                 SimpanButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 90, 30));
+        getContentPane().add(SimpanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 90, 30));
 
         HapusButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         HapusButton1.setText("Hapus");
@@ -157,7 +160,7 @@ public class MainView extends javax.swing.JFrame {
                 HapusButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 80, 30));
+        getContentPane().add(HapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 80, 30));
 
         LihatTabelPaket.setBackground(new java.awt.Color(255, 153, 0));
         LihatTabelPaket.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -173,7 +176,7 @@ public class MainView extends javax.swing.JFrame {
                 LihatTabelPaketActionPerformed(evt);
             }
         });
-        getContentPane().add(LihatTabelPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 130, 40));
+        getContentPane().add(LihatTabelPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 130, 40));
 
         Id_layanan.setEditable(false);
         Id_layanan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -182,7 +185,33 @@ public class MainView extends javax.swing.JFrame {
                 Id_layananActionPerformed(evt);
             }
         });
-        getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 150, 30));
+        getContentPane().add(Id_layanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 190, 30));
+
+        Jumlah_kucing.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        Jumlah_kucing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jumlah_kucingMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Jumlah_kucingMouseEntered(evt);
+            }
+        });
+        Jumlah_kucing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jumlah_kucingActionPerformed(evt);
+            }
+        });
+        Jumlah_kucing.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                Jumlah_kucingPropertyChange(evt);
+            }
+        });
+        Jumlah_kucing.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                Jumlah_kucingKeyTyped(evt);
+            }
+        });
+        getContentPane().add(Jumlah_kucing, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 190, 30));
 
         PaketChoice.setBackground(new java.awt.Color(255, 153, 0));
         PaketChoice.setFont(new java.awt.Font("Mongolian Baiti", 1, 14)); // NOI18N
@@ -198,26 +227,35 @@ public class MainView extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PaketChoice, 0, 190, Short.MAX_VALUE)
+            .addComponent(PaketChoice, javax.swing.GroupLayout.Alignment.TRAILING, 0, 190, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PaketChoice, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(PaketChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 190, 30));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 190, 30));
 
         TableData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         TableData.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         TableData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
         TableData.setNextFocusableComponent(Jadwal);
@@ -228,14 +266,8 @@ public class MainView extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(TableData);
-        if (TableData.getColumnModel().getColumnCount() > 0) {
-            TableData.getColumnModel().getColumn(0).setHeaderValue("Title 1");
-            TableData.getColumnModel().getColumn(1).setHeaderValue("Title 2");
-            TableData.getColumnModel().getColumn(2).setHeaderValue("Title 3");
-            TableData.getColumnModel().getColumn(3).setHeaderValue("Title 4");
-        }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 580, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 730, 230));
 
         comboxSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id Layanan", "Nama Pelanggan", "Paket" }));
@@ -261,7 +293,7 @@ public class MainView extends javax.swing.JFrame {
                 TampilkanActionPerformed(evt);
             }
         });
-        getContentPane().add(Tampilkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 130, 40));
+        getContentPane().add(Tampilkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 130, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/kucing.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 710, 470));
@@ -314,7 +346,10 @@ public class MainView extends javax.swing.JFrame {
         });
         jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 530, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 580));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 580));
+
+        Paket.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        getContentPane().add(Paket, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 276, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -379,6 +414,7 @@ public class MainView extends javax.swing.JFrame {
         Nama_pelanggan.setText(TableData.getValueAt(baris, 1).toString());
         Paket.setText(TableData.getValueAt(baris, 2).toString());
         Jadwal.setText(TableData.getValueAt(baris, 3).toString());
+        Jumlah_kucing.setText(TableData.getValueAt(baris, 4).toString());
         
 
     }//GEN-LAST:event_TableDataMouseClicked
@@ -437,6 +473,26 @@ public class MainView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_logoutActionPerformed
 
+    private void Jumlah_kucingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jumlah_kucingMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jumlah_kucingMouseClicked
+
+    private void Jumlah_kucingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jumlah_kucingMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jumlah_kucingMouseEntered
+
+    private void Jumlah_kucingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jumlah_kucingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jumlah_kucingActionPerformed
+
+    private void Jumlah_kucingPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_Jumlah_kucingPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jumlah_kucingPropertyChange
+
+    private void Jumlah_kucingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Jumlah_kucingKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jumlah_kucingKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -477,6 +533,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton HapusButton1;
     private javax.swing.JTextField Id_layanan;
     private javax.swing.JTextField Jadwal;
+    private javax.swing.JTextField Jumlah_kucing;
     private javax.swing.JButton LihatTabelPaket;
     private javax.swing.JTextField Nama_pelanggan;
     private javax.swing.JTextField Paket;
@@ -495,6 +552,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -506,6 +564,15 @@ public class MainView extends javax.swing.JFrame {
     public controller getDc() {
         return dc;
     }
+
+    public JTextField getJumlah_kucing() {
+        return Jumlah_kucing;
+    }
+
+    public void setJumlah_kucing(JTextField Jumlah_kucing) {
+        this.Jumlah_kucing = Jumlah_kucing;
+    }
+    
 
     public void setDc(controller dc) {
         this.dc = dc;
