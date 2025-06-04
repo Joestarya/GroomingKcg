@@ -139,7 +139,8 @@ public class catGroomDAO implements implementasi {
         statement.setString(1, p.getNama_pelanggan());
         statement.setString(2, p.getPaket());
         statement.setTimestamp(3, Timestamp.valueOf(p.getJadwal()));
-        statement.setInt(4, p.getId_layanan());
+        statement.setInt(4, p.getJumlah_kucing());
+        statement.setInt(5, p.getId_layanan());
         statement.executeUpdate();
     } catch (SQLException ex) {
         ex.printStackTrace();

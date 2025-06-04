@@ -59,9 +59,9 @@ public class controller {
                     
                     rs.getString("paket"),
                     rs.getString("jadwal"), 
-                    rs.getFloat("harga"),
+                    rs.getInt("harga"),
                     rs.getInt("jumlah_kucing"),
-                    rs.getFloat("harga_total")
+                    rs.getInt("harga_total")
                 });
             }
             frame.getTableData().setModel(model);
@@ -95,6 +95,7 @@ public class controller {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
         data.setJadwal(jadwal);
+        data.setJumlah_kucing(Integer.valueOf(frame.getJumlah_kucing().getText()));
         data.setId_layanan(Integer.valueOf(frame.getId_layanan().getText()));
         impDAO.edit(data);
     }
@@ -131,8 +132,8 @@ public class controller {
                 rs.getString("paket"),
                 rs.getString("jadwal"),
                 rs.getFloat("harga"),
-                rs.getFloat("jumlah_kucing"),
-                rs.getFloat("harga_total")
+                rs.getInt("jumlah_kucing"),
+                rs.getInt("harga_total")
             });
         }
         frame.getTableData().setModel(model);

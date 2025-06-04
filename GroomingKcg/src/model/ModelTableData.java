@@ -31,7 +31,7 @@ public class ModelTableData extends AbstractTableModel {
             case 3 -> "Jadwal Grooming";
             case 4 -> "Harga Grooming";
             case 5 -> "Jumlah Kucing";
-            case 6 -> "Harga_Total";
+            case 6 -> "Harga Total";
             default -> null;
         };
     }
