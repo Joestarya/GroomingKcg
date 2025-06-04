@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jun 2025 pada 06.01
+-- Waktu pembuatan: 04 Jun 2025 pada 06.16
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -75,7 +75,9 @@ INSERT INTO `layanan` (`id_layanan`, `nama_pelanggan`, `jadwal`, `paket`, `jumla
 (19, 'sansanmaoer', '2025-06-04 10:47:54', 'Grooming Anti Kutu', 3, 300000),
 (20, 'monkeycatluna', '2025-06-04 10:47:54', 'Dry Grooming', 1, 100000),
 (21, 'heoseobi', '2025-06-04 10:47:54', 'Grooming Anti Kutu', 1, 100000),
-(22, 'lunaistabby', '2025-06-04 10:47:54', 'Grooming Lengkap', 4, 600000);
+(22, 'lunaistabby', '2025-06-04 10:47:54', 'Grooming Lengkap', 4, 600000),
+(25, 'miw', '2025-06-04 11:04:38', 'Grooming Lengkap', 5, 750000),
+(26, 'miw', '2025-06-04 11:04:38', 'Grooming Lengkap', 4, 600000);
 
 --
 -- Trigger `layanan`
@@ -90,6 +92,18 @@ CREATE TRIGGER `hitung_harga_total_insert` BEFORE INSERT ON `layanan` FOR EACH R
     WHERE paket = NEW.paket;
 
     -- Hitung total harga
+    SET NEW.harga_total = NEW.jumlah_kucing * harga_paket;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `hitung_harga_total_update` BEFORE UPDATE ON `layanan` FOR EACH ROW BEGIN
+    DECLARE harga_paket INT;
+
+    SELECT harga INTO harga_paket
+    FROM datapaket
+    WHERE paket = NEW.paket;
+
     SET NEW.harga_total = NEW.jumlah_kucing * harga_paket;
 END
 $$
@@ -147,7 +161,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT untuk tabel `layanan`
 --
 ALTER TABLE `layanan`
-  MODIFY `id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`

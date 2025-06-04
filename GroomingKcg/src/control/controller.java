@@ -82,7 +82,12 @@ public class controller {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText().trim(), formatter);
         data.setJadwal(jadwal);
-        data.setJumlah_kucing(Integer.valueOf(frame.getJumlah_kucing().getText()));
+        
+        try{
+            data.setJumlah_kucing(Integer.valueOf(frame.getJumlah_kucing().getText()));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog (null, "Error!" + e);
+        }
         
         data.setPaket(frame.getPaket().getText());
                 impDAO.insert(data);
@@ -95,7 +100,11 @@ public class controller {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime jadwal = LocalDateTime.parse(frame.getJadwal().getText(), formatter);
         data.setJadwal(jadwal);
-        data.setJumlah_kucing(Integer.valueOf(frame.getJumlah_kucing().getText()));
+        try{
+            data.setJumlah_kucing(Integer.valueOf(frame.getJumlah_kucing().getText()));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog (null, "Error!" + e);
+        }
         data.setId_layanan(Integer.valueOf(frame.getId_layanan().getText()));
         impDAO.edit(data);
     }
