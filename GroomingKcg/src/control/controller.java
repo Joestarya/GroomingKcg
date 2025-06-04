@@ -148,6 +148,7 @@ public class controller {
         frame.getNama_pelanggan().setText("");
         frame.getJadwal().setText("");
         frame.getPaket().setText("");
+        frame.getJumlah_kucing().setText("");
     }
     
     
